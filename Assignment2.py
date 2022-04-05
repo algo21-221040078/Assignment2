@@ -21,22 +21,26 @@ sns.set()
 os.chdir(r'D:\Coding\Assignment2')
 
 # import data
-sz50 = pd.read_csv('sz50.csv')
-data = sz50.astype(float)
-factor = pd.read_csv('fivefactor_daily.csv')
+sz50 = pd.read_csv('sz50.csv', index_col='date')
+factor_raw = pd.read_csv('fivefactor_daily.csv',index_col='trddy')
 
 # stock list 股票池
-def SZ50_stocks(data):
-    #获取上证50成分股
-    stock_sz50 = data.drop_duplicates('stkcd')
-    stock_sz50['stkcd'] = stock_sz50['stkcd'].apply(lambda x:str(float(x))[:-2])
-    stock_sz50 = stock_sz50['stkcd']
-    stock_codes = pd.DataFrame(columns=stock_sz50)
-    return stock_codes
+stock_codes = list(sz50.columns)
 
-# 整合数据
-df = pd.DataFrame()
 
+# 3-factors
+factors = pd.DataFrame()
+factors = factor_raw.loc['2021-03-01':'2022-03-01',['mkt_rf','smb','hml','rf']]
+
+# calculate daily return
+daily_return = pd.DataFrame()
+daily_return['date'] = sz50['date']
+log_return = pd.DataFrame()
+for stock in stock_codes:
+    log_return[stock] = np.log(sz50[stock]/sz50[stock].shift(1))[:]
+    daily_return[stock] = log_return[stock]
+
+# all data set
 
 
 
