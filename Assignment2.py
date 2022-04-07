@@ -51,6 +51,7 @@ for stock in stock_codes:
 # all data set
 data_all = pd.DataFrame()
 data_all = pd.merge(factors, daily_return, on='trddy',how='inner')
+data_all = data_all.dropna()
 
 # OLS
 def OLS(data_all):
@@ -68,7 +69,10 @@ def OLS(data_all):
     z = results.sort_values(by="Alpha",axis=1,ascending=False)
     stocks_lists = z.columns.values.tolist()
     top_stocks = stocks_lists[:10]
-    print(top_stocks)
+    print(results)
+    print("The top ten stocks are:", top_stocks)
+    for stock in top_stocks:
+        print(stock, ":", results.loc['Alpha', stock])
     return top_stocks
 
 OLS(data_all)
