@@ -45,8 +45,8 @@ daily_return = pd.DataFrame()
 # daily_return['trddy'] = sz50['trddy']
 dreturn = pd.DataFrame()
 for stock in stock_codes:
-    dreturn[stock] = ((sz50[stock]-sz50[stock].shift(1))/sz50[stock])[:] # return or logreturn?
-    daily_return[stock] = dreturn[stock]-0.000041 # excess of not?
+    dreturn[stock] = ((sz50[stock]-sz50[stock].shift(1))/sz50[stock])[:]
+    daily_return[stock] = dreturn[stock]-0.000041
 
 # all data set
 data_all = pd.DataFrame()
