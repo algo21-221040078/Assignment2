@@ -7,10 +7,9 @@ Fama-French 3 factors model
 '''
 
 import pandas as pd
-import seaborn as sns
 import os
 import statsmodels.api as sm
-sns.set()
+
 
 os.chdir(r'D:\Coding\Assignment2')
 

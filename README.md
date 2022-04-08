@@ -13,8 +13,8 @@ series regression. The intercepts from three-factor regressions that include the
 return and the mimicking returns for size and BE/ME factors are close to 0.
 ## 2. Empirical Test
 ### 2.1 Environment
-1. Language: Python 3.7
-2. Package: pandas, numpy, datetime, os, statsmodels
+1. Environment: Python 3.7
+2. Package: pandas, os, statsmodels.api
 
 ### 2.1 Data
 We used the historical data of the Shanghai Stock Exchange 50 constituent stocks from February 
@@ -28,8 +28,10 @@ There are 2 data files:
 
 ### 2.2 Model
 1. Fama-French three factors model  
-$R_it-R_ft = b_i(R_mt-R_ft)+s_iSMB_t+h_iHML_t $
-
+![ ](ff.jpg)
+2. According to this formula, we use the data to perform ols regression.
+ And we get each stock's ALPHA. Then we sort these stocks by ALPHA value 
+and select the top ten stocks.
 ### 2.3 Results
 1. The top ten stocks are:   
 ['600436.SH', '600809.SH', '600900.SH', '601088.SH', '601857.SH', '601633.SH', '600745.SH', '600519.SH', '600036.SH', '603501.SH']
