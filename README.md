@@ -27,6 +27,7 @@ There are 2 data files:
 2. fivefactor_daily: factors data.(Data Source: https://sf.cufe.edu.cn/info/1198/11508.htm)
 
 ### 2.2 Model
+1. Fama-French three factors model  
 
 
 ### 2.3 Results
