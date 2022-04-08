@@ -13,7 +13,7 @@ series regression. The intercepts from three-factor regressions that include the
 return and the mimicking returns for size and BE/ME factors are close to 0.
 ## 2. Empirical Test
 ### 2.1 Environment
-1. Environment: Python 3.7
+1. Environment: Python 3.9
 2. Package: pandas, os, statsmodels.api
 
 ### 2.1 Data
