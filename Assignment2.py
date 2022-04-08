@@ -7,17 +7,10 @@ Fama-French 3 factors model
 '''
 
 import pandas as pd
-import numpy as np
-# import tushare as ts
 import seaborn as sns
-import matplotlib.pyplot as plt
-import matplotlib as mpl
-import datetime
 import os
 import statsmodels.api as sm
 sns.set()
-# mpl.rcParams['font.sans-serif'] = 'WenQuanYi Micro Hei' #中文字体
-# pro = ts.pro_api('4b82579de828df5013ba4f165ad9bf6fc831853e6315e111bb6ebaea')
 
 os.chdir(r'D:\Coding\Assignment2')
 
@@ -54,11 +47,11 @@ data_all = pd.merge(factors, daily_return, on='trddy',how='inner')
 data_all = data_all.dropna()
 
 # OLS
-def OLS(data_all):
+def OLS(data):
     results = pd.DataFrame()
-    stocks_return = data_all.iloc[:,4:]
+    stocks_return = data.iloc[:,4:]
     for i in range(len(stocks_return.columns)):
-        x = data_all.iloc[:,0:3]
+        x = data.iloc[:,0:3]
         y = stocks_return.iloc[:,i]
         X = sm.add_constant(x)
         model = sm.OLS(y,X)
