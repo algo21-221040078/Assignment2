@@ -35,7 +35,6 @@ factors = factor_raw.loc['2021-03-01':'2022-03-01',['mkt_rf','smb','hml','rf']]
 
 # calculate daily return
 daily_return = pd.DataFrame()
-# daily_return['trddy'] = sz50['trddy']
 dreturn = pd.DataFrame()
 for stock in stock_codes:
     dreturn[stock] = ((sz50[stock]-sz50[stock].shift(1))/sz50[stock])[:]
