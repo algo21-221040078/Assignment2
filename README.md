@@ -28,7 +28,7 @@ There are 2 data files:
 
 ### 2.2 Model
 1. Fama-French three factors model  
-
+$R_it-R_ft = b_i(R_mt-R_ft)+s_iSMB_t+h_iHML_t $
 
 ### 2.3 Results
 1. The top ten stocks are:   
